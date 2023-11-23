@@ -6,11 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CurrencyService {
-  private apiUrl = 'YOUR_API_ENDPOINT'; // Підставте сюди URL API для отримання курсів валют
+  private apiUrl =
+    'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json';
 
   constructor(private http: HttpClient) {}
 
-  getExchangeRates(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getExchangeRates(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 }
