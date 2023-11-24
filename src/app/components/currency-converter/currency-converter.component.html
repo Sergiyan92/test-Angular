@@ -1,0 +1,43 @@
+<div class="bg-gray-100 p-8 max-w-md mx-auto my-8 rounded-md shadow-md">
+  <h2 class="text-2xl font-bold mb-4 text-center">Currency Converter</h2>
+  <div class="mb-4">
+    <label class="block text-sm mb-2">Amount:</label>
+    <input
+      [(ngModel)]="amount"
+      type="number"
+      class="w-full border p-2 rounded-md"
+    />
+  </div>
+  <div class="mb-4">
+    <label class="block text-sm mb-2">Currency:</label>
+    <select [(ngModel)]="currencyFrom" class="w-full border p-2 rounded-md">
+      <option value="UAH">UAH</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+  </div>
+  <div class="mb-4">
+    <label class="block text-sm mb-2">Converted Amount:</label>
+    <input
+      [value]="convertedAmount.toFixed(2)"
+      readonly
+      class="w-full border p-2 rounded-md"
+    />
+  </div>
+  <div class="mb-4">
+    <label class="block text-sm mb-2">Currency:</label>
+    <select [(ngModel)]="currencyTo" class="w-full border p-2 rounded-md">
+      <option value="UAH">UAH</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+  </div>
+  <div class="flex justify-center">
+    <button
+      (click)="convertCurrency()"
+      class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+    >
+      Convert
+    </button>
+  </div>
+</div>

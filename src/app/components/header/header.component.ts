@@ -2,13 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  template: `
-    <div>
-      <h1>Exchange Rates</h1>
-      <p>USD to UAH: {{ getRate('USD') | number : '1.2-2' }}</p>
-      <p>EUR to UAH: {{ getRate('EUR') | number : '1.2-2' }}</p>
-    </div>
-  `,
+  templateUrl: './header.component.html',
 })
 export class HeaderComponent {
   @Input() exchangeRates: any[] = [];
@@ -18,5 +12,9 @@ export class HeaderComponent {
       (rate) => rate.cc === currencyCode
     );
     return currency?.rate;
+  }
+  getExchangeDate(): string | undefined {
+    const firstCurrency = this.exchangeRates?.[0];
+    return firstCurrency?.exchangedate;
   }
 }

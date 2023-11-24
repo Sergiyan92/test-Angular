@@ -1,0 +1,9 @@
+<div class="flex flex-col items-center mt-5">
+  <h1 class="text-2xl font-bold mb-4">
+    Exchange Rates: {{ getExchangeDate() }}
+  </h1>
+  <p class="text-lg mb-2">
+    USD to UAH: {{ getRate("USD") | number : "1.2-2" }}
+  </p>
+  <p class="text-lg">EUR to UAH: {{ getRate("EUR") | number : "1.2-2" }}</p>
+</div>

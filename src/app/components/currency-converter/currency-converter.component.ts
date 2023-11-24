@@ -3,32 +3,7 @@ import { CurrencyService } from '../../services/currency.service'; // встав
 
 @Component({
   selector: 'app-currency-converter',
-  template: `
-    <div>
-      <h2>Сurrency converter</h2>
-      <div>
-        <label>Amount:</label>
-        <input [(ngModel)]="amount" type="number" />
-        <label>Currency:</label>
-        <select [(ngModel)]="currencyFrom">
-          <option value="UAH">UAH</option>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-        </select>
-      </div>
-      <div>
-        <label>Converted Amount:</label>
-        <input [value]="convertedAmount.toFixed(2)" readonly />
-        <label>Currency:</label>
-        <select [(ngModel)]="currencyTo">
-          <option value="UAH">UAH</option>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-        </select>
-      </div>
-      <button (click)="convertCurrency()">Convert</button>
-    </div>
-  `,
+  templateUrl: './currency-converter.component.html',
 })
 export class CurrencyConverterComponent {
   amount: number | undefined;
