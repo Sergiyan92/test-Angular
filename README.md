@@ -1,27 +1,47 @@
-# TestAngular
+### Currency Converter App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
+This Angular application provides a simple currency converter tool, allowing users to convert amounts between Ukrainian Hryvnia (UAH), US Dollar (USD), and Euro (EUR). The app fetches real-time exchange rates from an external API to perform accurate currency conversions.
 
-## Development server
+#### Features:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **User-Friendly Interface:**
 
-## Code scaffolding
+  - Input field for entering the amount to convert.
+  - Dropdowns for selecting the source and target currencies.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Dynamic Currency Conversion:**
 
-## Build
+  - Fetches live exchange rates to ensure accurate conversions.
+  - Converts the entered amount between selected currencies.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Stylish Design:**
+  - Utilizes Tailwind CSS for a clean and modern user interface.
+  - Responsive design for optimal viewing on various devices.
 
-## Running unit tests
+#### How to Use:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Enter the amount you want to convert.
+2. Select the source currency from the dropdown.
+3. Choose the target currency from the second dropdown.
+4. Click the "Convert" button to see the converted amount.
 
-## Running end-to-end tests
+#### Technologies Used:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Angular:** Front-end framework for building robust and dynamic web applications.
+- **Tailwind CSS:** Utility-first CSS framework for styling the user interface.
+- **API Integration:** Connects to an external API to fetch real-time exchange rates.
 
-## Further help
+#### Installation:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Run `npm install` to install dependencies.
+4. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/` in your browser.
+
+#### Acknowledgments:
+
+The app uses exchange rate data from https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json for accurate and up-to-date currency conversion.
+
+#### Contributors:
+
+- Serhii Kondratchuk
