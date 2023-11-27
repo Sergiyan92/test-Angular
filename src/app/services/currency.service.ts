@@ -2,6 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface ExchangeRate {
+  r030: number;
+  txt: string;
+  rate: number;
+  cc: string;
+  exchangedate: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -11,7 +19,7 @@ export class CurrencyService {
 
   constructor(private http: HttpClient) {}
 
-  getExchangeRates(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getExchangeRates(): Observable<ExchangeRate[]> {
+    return this.http.get<ExchangeRate[]>(this.apiUrl);
   }
 }

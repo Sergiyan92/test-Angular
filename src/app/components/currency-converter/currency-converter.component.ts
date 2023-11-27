@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { CurrencyService } from '../../services/currency.service';
 
+interface ExchangeRate {
+  cc: string;
+  rate: number;
+  exchangedate: string;
+}
+
 @Component({
   selector: 'app-currency-converter',
   templateUrl: './currency-converter.component.html',
@@ -15,7 +21,7 @@ export class CurrencyConverterComponent {
 
   convertCurrency() {
     this.currencyService.getExchangeRates().subscribe(
-      (data: any[]) => {
+      (data: ExchangeRate[]) => {
         const exchangeRates = data;
 
         if (this.currencyFrom && this.currencyTo) {
