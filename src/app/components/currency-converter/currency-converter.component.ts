@@ -24,7 +24,6 @@ export class CurrencyConverterComponent {
     private fb: FormBuilder,
     private currencyService: CurrencyService
   ) {
-    // Ініціалізуємо форму в конструкторі
     this.converterForm = this.fb.group({
       amount: '',
       currencyFrom: '',
@@ -34,13 +33,10 @@ export class CurrencyConverterComponent {
   }
 
   convertCurrency() {
-    // Отримайте значення з форми
     const formValue = this.converterForm.value;
 
     if (formValue) {
       const { amount, currencyFrom, currencyTo } = formValue;
-
-      // Реалізуйте логіку конвертації валют за допомогою сервісу
       this.currencyService.getExchangeRates().subscribe(
         (data: ExchangeRate[]) => {
           const exchangeRates = data;
@@ -60,8 +56,6 @@ export class CurrencyConverterComponent {
             } else {
               this.convertedAmount = 0;
             }
-
-            // Оновлення значення в контролері форми з двома цифрами після коми
             this.converterForm
               .get('convertedAmount')
               ?.setValue(this.convertedAmount.toFixed(2));

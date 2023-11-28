@@ -1,4 +1,3 @@
-// custom-select.component.ts
 import { Component, forwardRef, Input } from '@angular/core';
 import {
   ControlValueAccessor,
@@ -22,25 +21,18 @@ export class CustomSelectComponent implements ControlValueAccessor {
   @Input() control: FormControl | any = new FormControl();
   @Input() options: { value: string; label: string }[] = [];
 
-  onChange: any = () => {};
+  onChange: (value: string) => void = () => {};
 
-  writeValue(value: any): void {
+  writeValue(value: string): void {
     this.control.setValue(value);
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
-    // implement if needed
-  }
+  registerOnTouched(fn: any): void {}
 
-  setDisabledState(isDisabled: boolean): void {
-    // implement if needed
-  }
-
-  // Додати метод для обробки події зміни значення у випадаючому списку
   handleSelectChange(event: Event): void {
     const selectedValue = (event.target as HTMLSelectElement).value;
     this.onChange(selectedValue);

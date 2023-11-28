@@ -1,9 +1,9 @@
-<!-- custom-input.component.html -->
-<div>
-  <label>{{ label }}</label>
+<div class="mb-4">
+  <label class="block text-sm mb-2">{{ label }}</label>
   <input
     [formControl]="control"
     (input)="handleInput($event)"
     (blur)="onTouch()"
+    class="w-full border p-2 rounded-md"
   />
 </div>

@@ -1,14 +1,15 @@
 <form
   [formGroup]="converterForm"
-  class="max-w-md mx-auto my-8 p-4 bg-gray-100 rounded-md shadow-md"
+  class="bg-slate-200 p-8 max-w-md mx-auto my-8 rounded-md shadow-md"
 >
+  <h2 class="text-2xl text-center font-bold mb-4">Currency Converter</h2>
   <app-custom-input
     formControlName="amount"
     label="Amount"
     type="number"
-    class="mb-4"
+    class="mb-4 flex flex-col font-medium text-sm rounded-md border"
   ></app-custom-input>
-  <div class="mb-4">
+  <div class="mb-4 font-medium block text-sm">
     <app-custom-select
       formControlName="currencyFrom"
       [label]="'Currency From'"
@@ -21,7 +22,7 @@
       <option value="EUR">EUR</option>
     </app-custom-select>
   </div>
-  <div class="mb-4">
+  <div class="mb-4 block font-medium text-sm">
     <app-custom-select
       formControlName="currencyTo"
       [label]="'Currency To'"
@@ -34,7 +35,7 @@
       <option value="EUR">EUR</option>
     </app-custom-select>
   </div>
-  <div class="mb-4">
+  <div class="mb-4 font-medium">
     <label class="block text-sm mb-2">Converted Amount:</label>
     <input
       [value]="converterForm.get('convertedAmount')?.value"
@@ -42,10 +43,12 @@
       class="w-full border p-2 rounded-md"
     />
   </div>
-  <button
-    (click)="convertCurrency()"
-    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-  >
-    Convert
-  </button>
+  <div class="flex justify-center">
+    <button
+      (click)="convertCurrency()"
+      class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+    >
+      Convert
+    </button>
+  </div>
 </form>

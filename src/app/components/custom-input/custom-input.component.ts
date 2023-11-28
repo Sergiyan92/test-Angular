@@ -1,4 +1,3 @@
-// custom-input.component.ts
 import { Component, forwardRef, Input } from '@angular/core';
 import {
   ControlValueAccessor,
@@ -19,24 +18,25 @@ import {
 })
 export class CustomInputComponent implements ControlValueAccessor {
   @Input() label: string = '';
-  @Input() control: FormControl | any = new FormControl();
+  @Input() control: FormControl = new FormControl();
 
-  onChange: any = () => {};
-  onTouch: any = () => {};
+  onChange: (value: string | null) => void = () => {};
+  onTouch: () => void = () => {};
 
-  writeValue(value: any): void {
+  writeValue(value: string | null): void {
     this.control.setValue(value);
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: (value: string | null) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: () => void): void {
     this.onTouch = fn;
   }
 
-  handleInput(event: any): void {
-    this.onChange(event.target.value);
+  handleInput(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.onChange(target.value);
   }
 }

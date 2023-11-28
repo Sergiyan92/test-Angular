@@ -1,10 +1,50 @@
-<!-- custom-select.component.html -->
-<div>
-  <label>{{ label }}</label>
-  <select [formControl]="control" (change)="handleSelectChange($event)">
+<div class="mb-4">
+  <label class="block text-sm mb-2">{{ label }}</label>
+  <select
+    [formControl]="control"
+    (change)="handleSelectChange($event)"
+    class="w-full border p-2 rounded-md"
+  >
     <option *ngFor="let option of options" [value]="option.value">
       {{ option.label }}
     </option>
     <ng-content></ng-content>
   </select>
 </div>
+
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<!-- <div class="bg-gray-100 p-8 max-w-md mx-auto my-8 rounded-md shadow-md">
+  <h2 class="text-2xl font-bold mb-4">Currency Converter</h2>
+  <div class="mb-4">
+    <label class="block text-sm mb-2">Amount:</label>
+    <input type="number" class="w-full border p-2 rounded-md" />
+  </div>
+  <div class="mb-4">
+    <label class="block text-sm mb-2">Currency:</label>
+    <select class="w-full border p-2 rounded-md">
+      <option value="UAH">UAH</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+  </div>
+  <div class="mb-4">
+    <label class="block text-sm mb-2">Converted Amount:</label>
+    <input readonly class="w-full border p-2 rounded-md" />
+  </div>
+  <div class="mb-4">
+    <label class="block text-sm mb-2">Currency:</label>
+    <select class="w-full border p-2 rounded-md">
+      <option value="UAH">UAH</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+  </div>
+  <div class="flex justify-center">
+    <button
+      class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+    >
+      Convert
+    </button>
+  </div>
+</div> -->
