@@ -1,0 +1,9 @@
+<!-- custom-input.component.html -->
+<div>
+  <label>{{ label }}</label>
+  <input
+    [formControl]="control"
+    (input)="handleInput($event)"
+    (blur)="onTouch()"
+  />
+</div>

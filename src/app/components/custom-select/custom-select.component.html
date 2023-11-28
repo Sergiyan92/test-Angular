@@ -1,0 +1,10 @@
+<!-- custom-select.component.html -->
+<div>
+  <label>{{ label }}</label>
+  <select [formControl]="control" (change)="handleSelectChange($event)">
+    <option *ngFor="let option of options" [value]="option.value">
+      {{ option.label }}
+    </option>
+    <ng-content></ng-content>
+  </select>
+</div>

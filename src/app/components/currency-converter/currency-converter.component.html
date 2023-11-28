@@ -1,44 +1,51 @@
-<div class="bg-slate-300 p-8 max-w-md mx-auto my-8 rounded-md shadow-md">
-  <h2 class="text-2xl font-bold mb-4 text-center">Currency Converter</h2>
+<form
+  [formGroup]="converterForm"
+  class="max-w-md mx-auto my-8 p-4 bg-gray-100 rounded-md shadow-md"
+>
+  <app-custom-input
+    formControlName="amount"
+    label="Amount"
+    type="number"
+    class="mb-4"
+  ></app-custom-input>
   <div class="mb-4">
-    <label class="block text-sm mb-2">Currency: 1</label>
-    <select [(ngModel)]="currencyFrom" class="w-full border p-2 rounded-md">
+    <app-custom-select
+      formControlName="currencyFrom"
+      [label]="'Currency From'"
+      [control]="converterForm.controls['currencyFrom']"
+      [options]="currencyOptions"
+      class="mb-2"
+    >
       <option value="UAH">UAH</option>
       <option value="USD">USD</option>
       <option value="EUR">EUR</option>
-    </select>
+    </app-custom-select>
   </div>
   <div class="mb-4">
-    <label class="block text-sm mb-2">Amount:</label>
+    <app-custom-select
+      formControlName="currencyTo"
+      [label]="'Currency To'"
+      [control]="converterForm.controls['currencyTo']"
+      [options]="currencyOptions"
+      class="mb-2"
+    >
+      <option value="UAH">UAH</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </app-custom-select>
+  </div>
+  <div class="mb-4">
+    <label class="block text-sm mb-2">Converted Amount:</label>
     <input
-      [(ngModel)]="amount"
-      type="number"
+      [value]="converterForm.get('convertedAmount')?.value"
+      readonly
       class="w-full border p-2 rounded-md"
-      min="0"
     />
   </div>
-  <div class="mb-4">
-    <label class="block text-sm mb-2">Currency: 2</label>
-    <select [(ngModel)]="currencyTo" class="w-full border p-2 rounded-md">
-      <option value="UAH">UAH</option>
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-    </select>
-    <div class="mb-4">
-      <label class="block text-sm mb-2">Converted Amount:</label>
-      <input
-        [value]="convertedAmount.toFixed(2)"
-        readonly
-        class="w-full border p-2 rounded-md"
-      />
-    </div>
-  </div>
-  <div class="flex justify-center">
-    <button
-      (click)="convertCurrency()"
-      class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-    >
-      Convert
-    </button>
-  </div>
-</div>
+  <button
+    (click)="convertCurrency()"
+    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+  >
+    Convert
+  </button>
+</form>
